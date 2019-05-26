@@ -18,7 +18,7 @@ Playbooks
 
 ### 01. Splunk_Demo_On_Notable
 
-** Required Assets: Splunk **
+**Required Assets: Splunk**
 
 ```
 Showcase the different actions we can perform via the Splunk app on Enterprise Security generated notables. 
@@ -37,7 +37,7 @@ Required artifact fields: event_id, sourceAddress, sourceUserName
 
 ### 02. PBS-GenericPlaybook
 
-** Required Assets: Any **
+**Required Assets: Any**
 
 ```
 This playbook shows how we can collect indicators in a more generic way. As long as the container artifacts use CEF Compatible fields to store indicators , this playbook will collect IPs, Domains, URLs and Hashes. 
