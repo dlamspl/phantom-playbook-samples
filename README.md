@@ -12,13 +12,13 @@ playbooks/PlaybookNameFolder/
 
 If you want to install a playbook on your Phantom dev instance download the .tgz file and import. 
 
-Available Playbooks
+Playbooks
 -----------
 
 
-01. Splunk_Demo_On_Notable
----
-Required Assets: Splunk
+### 01. Splunk_Demo_On_Notable
+
+** Required Assets: Splunk **
 
 ```
 Showcase the different actions we can perform via the Splunk app on Enterprise Security generated notables. 
@@ -31,15 +31,18 @@ Showcase the different actions we can perform via the Splunk app on Enterprise S
 Data source: ES notable from saved search on Splunk
 Required artifact fields: event_id, sourceAddress, sourceUserName
 ```
+![Splunk_Demo_On_Notable](https://github.com/dlamspl/phantom-playbook-samples/raw/master/playbooks/01.PBS-Splunk_Demo_On_Notable/PBS-Splunk%20Demo%20On%20Notable.png)
 
 [Image goes here ] Splunk Demo On Notable.png
 
-02. PBS-GenericPlaybook
----
-Required Assets: Any
+### 02. PBS-GenericPlaybook
+
+** Required Assets: Any **
 
 ```
 This playbook shows how we can collect indicators in a more generic way. As long as the container artifacts use CEF Compatible fields to store indicators , this playbook will collect IPs, Domains, URLs and Hashes. 
 
 It will then run related actions on any asset which supports such actions. 
 ```
+
+![PBS-GenericPlaybook](https://github.com/dlamspl/phantom-playbook-samples/raw/master/playbooks/02.PBS-GenericPlaybook/PBS-GenericPlaybook.png)
