@@ -1,0 +1,2860 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Playground",
+    "coa": {
+        "data": {
+            "clean": true,
+            "code_block": "",
+            "description": "This playbook shows how we can collect indicators in a more generic way. As long as the container artifacts use CEF Compatible fields to store indicators , this playbook will collect IPs, Domains, URLs and Hashes. \n\nIt will then run related actions on any asset which supports such actions.",
+            "hash": "fd4fe0553110366c72b9f71cfbe9258f102072e8",
+            "joint": {
+                "cells": [
+                    {
+                        "0": "S",
+                        "1": "T",
+                        "2": "A",
+                        "3": "R",
+                        "4": "T",
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "ref-x": 33,
+                                "ref-y": 8,
+                                "text": "START"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.icon image": {
+                                "ref-x": 13,
+                                "xlink:href": "/inc/coa/img/block_icon_start.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def on_start(container):\n    phantom.debug('on_start() called')\n    \n    # call 'AllContainerArtifacts' block\n    AllContainerArtifacts(container=container)\n\n    return",
+                        "callback_code": "# read-only block view not available",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "b06a3b58-2a57-4264-8404-96a648df99e0",
+                        "inPorts": [],
+                        "join_code": "# read-only block view not available",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 19,
+                        "line_start": 11,
+                        "name": "",
+                        "notes": "",
+                        "number": 0,
+                        "order": 1,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": -260,
+                            "y": 100
+                        },
+                        "previous_function": "",
+                        "previous_name": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 54,
+                            "width": 80
+                        },
+                        "status": "",
+                        "title": "START",
+                        "type": "coa.StartEnd",
+                        "warn": false,
+                        "z": 1
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "0f4e5ae2-c763-4943-aef6-6535f9f9820b",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "b06a3b58-2a57-4264-8404-96a648df99e0",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "62e21ebf-2d80-43fc-9f5e-0a15a17bbfe2",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 33
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "8e948e8b-d62e-4333-a5fb-5c3f85c28f01",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "62e21ebf-2d80-43fc-9f5e-0a15a17bbfe2",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "ef49bc36-4703-4a77-ab36-77fb3fc5a7f5",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 88
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "723c3108-123d-40c5-bcd5-daf5e291917e",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "62e21ebf-2d80-43fc-9f5e-0a15a17bbfe2",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "b9a5e47f-f645-4b3d-9e2e-82bef48d66e2",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 90
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "1110b469-c952-41f1-a361-20101f6a4989",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "62e21ebf-2d80-43fc-9f5e-0a15a17bbfe2",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "ac34d4c5-f16c-427c-b652-e2ddbe8bf3ef",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 105
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "7f2dd986-ac39-40cc-81c5-b8726c13d214",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "ef49bc36-4703-4a77-ab36-77fb3fc5a7f5",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "d8cab63c-8c56-4e95-ac59-4fc21d2313ae",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 115
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "58e30ce8-a63a-420a-baa4-6b593ba2575b",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "b9a5e47f-f645-4b3d-9e2e-82bef48d66e2",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "d8cab63c-8c56-4e95-ac59-4fc21d2313ae",
+                            "port": "in",
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 117
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "70d9c598-eb41-4a37-86d8-e7cb4e82de80",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "ac34d4c5-f16c-427c-b652-e2ddbe8bf3ef",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "d8cab63c-8c56-4e95-ac59-4fc21d2313ae",
+                            "port": "in",
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 119
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "68fc28b4-0a32-4bb2-a21f-5ac52b8f8688",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "d8cab63c-8c56-4e95-ac59-4fc21d2313ae",
+                            "port": "out-2",
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(2) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "67417e8d-fb7b-4109-b287-44a1dfa301cc",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 128
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "56f28e2a-740d-4a07-9908-4137d39ae29d",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "67417e8d-fb7b-4109-b287-44a1dfa301cc",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "404d3c27-bffc-4c8e-a0c8-4304159cb42d",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 233
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "api": "pin",
+                        "attrs": {
+                            ".api": {
+                                "text": "pin"
+                            },
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "API"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def pin_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('pin_2() called')\n\n    Summary_function_Success__total_success_artifacts = json.loads(phantom.get_run_data(key='Summary_function_Success:total_success_artifacts'))\n\n    phantom.pin(container=container, message=\"Success Artifacts\", data=Summary_function_Success__total_success_artifacts, pin_type=\"card_medium\", pin_style=\"blue\", name=None)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "color": "",
+                        "configured": [
+                            {
+                                "key": "pin",
+                                "pinData": "Summary_function_Success:custom_function:total_success_artifacts",
+                                "pinMessage": "Success Artifacts",
+                                "pinName": "",
+                                "pinPinStyle": "blue",
+                                "pinPinType": "card_medium"
+                            }
+                        ],
+                        "connected_to_start": true,
+                        "connection_name": "file reputation, lookup domain, url reputation",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "404d3c27-bffc-4c8e-a0c8-4304159cb42d",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 227,
+                        "line_start": 218,
+                        "message": "Configuring now",
+                        "name": "pin",
+                        "notes": "",
+                        "number": 2,
+                        "order": 8,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1100,
+                            "y": 220
+                        },
+                        "previous_function": "",
+                        "previous_name": "pin_2",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "api",
+                        "status": "",
+                        "title": "API",
+                        "type": "coa.API",
+                        "warn": false,
+                        "z": 234
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "d02d1624-15e2-4413-9165-a13e175beabd",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "d8cab63c-8c56-4e95-ac59-4fc21d2313ae",
+                            "port": "out-1",
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "e2cad42a-fb1e-4574-ab48-c87dac841496",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 235
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "6172296f-bce9-485f-83eb-880fcc8f225e",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "e2cad42a-fb1e-4574-ab48-c87dac841496",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "b2928949-eda1-4ed7-aaa5-5da006b88f6f",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 255
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "api": "pin",
+                        "attrs": {
+                            ".api": {
+                                "text": "pin"
+                            },
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "API"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def pin_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('pin_3() called')\n\n    Summary_function_Fail__total_failed_artifacts = json.loads(phantom.get_run_data(key='Summary_function_Fail:total_failed_artifacts'))\n\n    phantom.pin(container=container, message=\"Failed artifacts\", data=Summary_function_Fail__total_failed_artifacts, pin_type=\"card_medium\", pin_style=\"red\", name=None)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "color": "",
+                        "configured": [
+                            {
+                                "key": "pin",
+                                "pinData": "Summary_function_Fail:custom_function:total_failed_artifacts",
+                                "pinMessage": "Failed artifacts",
+                                "pinName": "",
+                                "pinPinStyle": "red",
+                                "pinPinType": "card_medium"
+                            }
+                        ],
+                        "connected_to_start": true,
+                        "connection_name": "file reputation, lookup domain, url reputation",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "b2928949-eda1-4ed7-aaa5-5da006b88f6f",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 266,
+                        "line_start": 257,
+                        "message": "Configuring now",
+                        "name": "pin",
+                        "notes": "",
+                        "number": 3,
+                        "order": 10,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1100,
+                            "y": 60
+                        },
+                        "previous_function": "",
+                        "previous_name": "pin_3",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "api",
+                        "status": "",
+                        "title": "API",
+                        "type": "coa.API",
+                        "warn": false,
+                        "z": 256
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".functionBlock": {
+                                "text": "AllContainerArtifacts"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_error.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "def AllContainerArtifacts(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('AllContainerArtifacts() called')\n    input_parameter_0 = \"\"\n\n    AllContainerArtifacts__results_hash = None\n    AllContainerArtifacts__results_ip = None\n    AllContainerArtifacts__results_url = None\n    AllContainerArtifacts__results_domain = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Get all artifacts containing hash type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"hash\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'hash': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_hash = parameters\n    \n    # Get all artifacts containing ip type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"ip\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'ip': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_ip = parameters    \n\n    # Get all artifacts containing url type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"url\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":\n            parameters.append({\n                'url': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_url = parameters  \n    \n    # Get all artifacts containing domain type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"domain\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'domain': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_domain = parameters      \n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='AllContainerArtifacts:results_hash', value=json.dumps(AllContainerArtifacts__results_hash))\n    phantom.save_run_data(key='AllContainerArtifacts:results_ip', value=json.dumps(AllContainerArtifacts__results_ip))\n    phantom.save_run_data(key='AllContainerArtifacts:results_url', value=json.dumps(AllContainerArtifacts__results_url))\n    phantom.save_run_data(key='AllContainerArtifacts:results_domain', value=json.dumps(AllContainerArtifacts__results_domain))\n    file_reputation_6(container=container)\n    lookup_domain_1(container=container)\n    url_reputation_1(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "customCodeEndLineOffset": 12,
+                        "customCodeStartLine": 12,
+                        "custom_callback": "",
+                        "custom_code": "def AllContainerArtifacts(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('AllContainerArtifacts() called')\n    input_parameter_0 = \"\"\n\n    AllContainerArtifacts__results_hash = None\n    AllContainerArtifacts__results_ip = None\n    AllContainerArtifacts__results_url = None\n    AllContainerArtifacts__results_domain = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Get all artifacts containing hash type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"hash\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'hash': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_hash = parameters\n    \n    # Get all artifacts containing ip type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"ip\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'ip': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_ip = parameters    \n\n    # Get all artifacts containing url type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"url\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":\n            parameters.append({\n                'url': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_url = parameters  \n    \n    # Get all artifacts containing domain type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"domain\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'domain': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_domain = parameters      \n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='AllContainerArtifacts:results_hash', value=json.dumps(AllContainerArtifacts__results_hash))\n    phantom.save_run_data(key='AllContainerArtifacts:results_ip', value=json.dumps(AllContainerArtifacts__results_ip))\n    phantom.save_run_data(key='AllContainerArtifacts:results_url', value=json.dumps(AllContainerArtifacts__results_url))\n    phantom.save_run_data(key='AllContainerArtifacts:results_domain', value=json.dumps(AllContainerArtifacts__results_domain))\n    file_reputation_6(container=container)\n    lookup_domain_1(container=container)\n    url_reputation_1(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "AllContainerArtifacts",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": true,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "62e21ebf-2d80-43fc-9f5e-0a15a17bbfe2",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 101,
+                        "line_start": 19,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 3,
+                        "order": 2,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "results_hash"
+                            },
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "results_ip"
+                            },
+                            {
+                                "position": 2,
+                                "type": "",
+                                "value": "results_url"
+                            },
+                            {
+                                "position": 3,
+                                "type": "",
+                                "value": "results_domain"
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": ""
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": -40,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "AllContainerArtifacts",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    # Get all artifacts containing hash type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"hash\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'hash': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_hash = parameters\n    \n    # Get all artifacts containing ip type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"ip\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'ip': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_ip = parameters    \n\n    # Get all artifacts containing url type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"url\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":\n            parameters.append({\n                'url': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_url = parameters  \n    \n    # Get all artifacts containing domain type\n    collected_artifacts = phantom.collect_from_contains(container=container, contains=[\"domain\"])\n    parameters = list()    \n\n    for item in collected_artifacts:\n        if item != \"\":        \n            parameters.append({\n                'domain': item\n            })   \n    \n    phantom.debug(parameters)\n\n    AllContainerArtifacts__results_domain = parameters      ",
+                        "warn": false,
+                        "z": 264
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99",
+                                "transform": "rotate(45 30 70)"
+                            },
+                            ".inPorts>.port-0>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".number": {
+                                "text": 1
+                            },
+                            ".outPorts>.port-0": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                },
+                                "ref-x": 83,
+                                "ref-y": 40
+                            },
+                            ".outPorts>.port-0>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".outPorts>.port-1": {
+                                "port": {
+                                    "id": "out-2",
+                                    "type": "out"
+                                },
+                                "ref-x": 41,
+                                "ref-y": 82
+                            },
+                            ".outPorts>.port-1>.port-body": {
+                                "port": {
+                                    "id": "out-2",
+                                    "type": "out"
+                                }
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "def Initial_filtering(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('Initial_filtering() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"url_reputation_1:action_result.status\", \"==\", \"failed\"],\n            [\"file_reputation_6:action_result.status\", \"==\", \"failed\"],\n            [\"lookup_domain_1:action_result.status\", \"==\", \"failed\"],\n        ],\n        logical_operator='or',\n        name=\"Initial_filtering:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        Summary_function_Fail(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n\n    # collect filtered artifact ids for 'if' condition 2\n    matched_artifacts_2, matched_results_2 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"file_reputation_6:action_result.status\", \"==\", \"success\"],\n            [\"lookup_domain_1:action_result.status\", \"==\", \"success\"],\n            [\"url_reputation_1:action_result.status\", \"==\", \"success\"],\n        ],\n        logical_operator='or',\n        name=\"Initial_filtering:condition_2\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_2 or matched_results_2:\n        Summary_function_Success(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "file reputation, lookup domain, url reputation",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "Initial filtering",
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "d8cab63c-8c56-4e95-ac59-4fc21d2313ae",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "def join_Initial_filtering(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('join_Initial_filtering() called')\n\n    # check if all connected incoming actions are done i.e. have succeeded or failed\n    if phantom.actions_done([ 'file_reputation_6', 'lookup_domain_1', 'url_reputation_1' ]):\n        \n        # call connected block \"Initial_filtering\"\n        Initial_filtering(container=container, handle=handle)\n    \n    return",
+                        "join_optional": [],
+                        "join_start": 177,
+                        "line_end": 188,
+                        "line_start": 140,
+                        "name": "filter",
+                        "notes": "",
+                        "number": 1,
+                        "order": 6,
+                        "outPorts": [
+                            "out-1",
+                            "out-2"
+                        ],
+                        "outputs": [
+                            {
+                                "conditions": [
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "url_reputation_1:action_result.status",
+                                        "value": "failed"
+                                    },
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "file_reputation_6:action_result.status",
+                                        "value": "failed"
+                                    },
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "lookup_domain_1:action_result.status",
+                                        "value": "failed"
+                                    }
+                                ],
+                                "display": "If",
+                                "logic": "or",
+                                "type": "if"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "file_reputation_6:action_result.status",
+                                        "value": "success"
+                                    },
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "lookup_domain_1:action_result.status",
+                                        "value": "success"
+                                    },
+                                    {
+                                        "comparison": "==",
+                                        "data_type": "",
+                                        "param": "url_reputation_1:action_result.status",
+                                        "value": "success"
+                                    }
+                                ],
+                                "display": "If",
+                                "logic": "or",
+                                "type": "if"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 620,
+                            "y": 60
+                        },
+                        "previous_function": "",
+                        "previous_name": "Initial_filtering",
+                        "show_number": true,
+                        "size": {
+                            "height": 82,
+                            "width": 82
+                        },
+                        "state": "filter",
+                        "status": "",
+                        "type": "coa.Filter",
+                        "warn": "",
+                        "z": 275
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".functionBlock": {
+                                "text": "Summary function Succ..."
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "def Summary_function_Success(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('Summary_function_Success() called')\n    filtered_results_data_1 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_2:url_reputation_1:action_result.parameter.url\"])\n    filtered_results_data_2 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_2:lookup_domain_1:action_result.parameter.domain\"])\n    filtered_results_data_3 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_2:file_reputation_6:action_result.parameter.hash\"])\n    filtered_results_item_1_0 = [item[0] for item in filtered_results_data_1]\n    filtered_results_item_2_0 = [item[0] for item in filtered_results_data_2]\n    filtered_results_item_3_0 = [item[0] for item in filtered_results_data_3]\n\n    Summary_function_Success__total_success_artifacts = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n    phantom.debug(filtered_results_item_1_0)\n    phantom.debug(filtered_results_item_2_0)\n    phantom.debug(filtered_results_item_3_0)    \n    Summary_function_Success__total_success_artifacts = len(filtered_results_item_1_0) + len(filtered_results_item_2_0) + len(filtered_results_item_3_0)\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='Summary_function_Success:total_success_artifacts', value=json.dumps(Summary_function_Success__total_success_artifacts))\n    pin_2(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "file reputation, lookup domain, url reputation",
+                        "connection_type": "action",
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 14,
+                        "custom_callback": "",
+                        "custom_code": "def Summary_function_Success(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('Summary_function_Success() called')\n    filtered_results_data_1 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_2:url_reputation_1:action_result.parameter.url\"])\n    filtered_results_data_2 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_2:lookup_domain_1:action_result.parameter.domain\"])\n    filtered_results_data_3 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_2:file_reputation_6:action_result.parameter.hash\"])\n    filtered_results_item_1_0 = [item[0] for item in filtered_results_data_1]\n    filtered_results_item_2_0 = [item[0] for item in filtered_results_data_2]\n    filtered_results_item_3_0 = [item[0] for item in filtered_results_data_3]\n\n    Summary_function_Success__total_success_artifacts = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n    phantom.debug(filtered_results_item_1_0)\n    phantom.debug(filtered_results_item_2_0)\n    phantom.debug(filtered_results_item_3_0)    \n    Summary_function_Success__total_success_artifacts = len(filtered_results_item_1_0) + len(filtered_results_item_2_0) + len(filtered_results_item_3_0)\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='Summary_function_Success:total_success_artifacts', value=json.dumps(Summary_function_Success__total_success_artifacts))\n    pin_2(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "Summary function Success",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "67417e8d-fb7b-4109-b287-44a1dfa301cc",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 218,
+                        "line_start": 188,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 4,
+                        "order": 7,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "total_success_artifacts"
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "filtered-data:Initial_filtering:condition_2:url_reputation_1:action_result.parameter.url"
+                            },
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "filtered-data:Initial_filtering:condition_2:lookup_domain_1:action_result.parameter.domain"
+                            },
+                            {
+                                "position": 2,
+                                "type": "",
+                                "value": "filtered-data:Initial_filtering:condition_2:file_reputation_6:action_result.parameter.hash"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 820,
+                            "y": 220
+                        },
+                        "previous_function": "",
+                        "previous_name": "Summary_function_Success",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    # Write your custom code here...\n    phantom.debug(filtered_results_item_1_0)\n    phantom.debug(filtered_results_item_2_0)\n    phantom.debug(filtered_results_item_3_0)    \n    Summary_function_Success__total_success_artifacts = len(filtered_results_item_1_0) + len(filtered_results_item_2_0) + len(filtered_results_item_3_0)\n",
+                        "warn": false,
+                        "z": 286
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".functionBlock": {
+                                "text": "Summary function Fail"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_error.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def Summary_function_Fail(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('Summary_function_Fail() called')\n    filtered_results_data_1 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_1:lookup_domain_1:action_result.parameter.domain\"])\n    filtered_results_data_2 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_1:file_reputation_6:action_result.parameter.hash\"])\n    filtered_results_data_3 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_1:url_reputation_1:action_result.parameter.url\"])\n    filtered_results_item_1_0 = [item[0] for item in filtered_results_data_1]\n    filtered_results_item_2_0 = [item[0] for item in filtered_results_data_2]\n    filtered_results_item_3_0 = [item[0] for item in filtered_results_data_3]\n\n    Summary_function_Fail__total_failed_artifacts = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n    phantom.debug(filtered_results_item_1_0)\n    phantom.debug(filtered_results_item_2_0)\n    phantom.debug(filtered_results_item_3_0)    \n    Summary_function_Fail__total_failed_artifacts = len(filtered_results_item_1_0) + len(filtered_results_item_2_0) + len(filtered_results_item_3_0)\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='Summary_function_Fail:total_failed_artifacts', value=json.dumps(Summary_function_Fail__total_failed_artifacts))\n    pin_3(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "file reputation, lookup domain, url reputation",
+                        "connection_type": "action",
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 14,
+                        "custom_callback": "",
+                        "custom_code": "def Summary_function_Fail(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('Summary_function_Fail() called')\n    filtered_results_data_1 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_1:lookup_domain_1:action_result.parameter.domain\"])\n    filtered_results_data_2 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_1:file_reputation_6:action_result.parameter.hash\"])\n    filtered_results_data_3 = phantom.collect2(container=container, datapath=[\"filtered-data:Initial_filtering:condition_1:url_reputation_1:action_result.parameter.url\"])\n    filtered_results_item_1_0 = [item[0] for item in filtered_results_data_1]\n    filtered_results_item_2_0 = [item[0] for item in filtered_results_data_2]\n    filtered_results_item_3_0 = [item[0] for item in filtered_results_data_3]\n\n    Summary_function_Fail__total_failed_artifacts = None\n\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n    phantom.debug(filtered_results_item_1_0)\n    phantom.debug(filtered_results_item_2_0)\n    phantom.debug(filtered_results_item_3_0)    \n    Summary_function_Fail__total_failed_artifacts = len(filtered_results_item_1_0) + len(filtered_results_item_2_0) + len(filtered_results_item_3_0)\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################\n\n    phantom.save_run_data(key='Summary_function_Fail:total_failed_artifacts', value=json.dumps(Summary_function_Fail__total_failed_artifacts))\n    pin_3(container=container)\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "Summary function Fail",
+                        "description": "",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "e2cad42a-fb1e-4574-ab48-c87dac841496",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 257,
+                        "line_start": 227,
+                        "message": "Configuring now",
+                        "name": "custom function",
+                        "notes": "",
+                        "number": 5,
+                        "order": 9,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "outputVariables": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "total_failed_artifacts"
+                            }
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "filtered-data:Initial_filtering:condition_1:lookup_domain_1:action_result.parameter.domain"
+                            },
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "filtered-data:Initial_filtering:condition_1:file_reputation_6:action_result.parameter.hash"
+                            },
+                            {
+                                "position": 2,
+                                "type": "",
+                                "value": "filtered-data:Initial_filtering:condition_1:url_reputation_1:action_result.parameter.url"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 820,
+                            "y": 60
+                        },
+                        "previous_function": "",
+                        "previous_name": "Summary_function_Fail",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "custom function",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.FunctionBlock",
+                        "userGeneratedCode": "\n    # Write your custom code here...\n    phantom.debug(filtered_results_item_1_0)\n    phantom.debug(filtered_results_item_2_0)\n    phantom.debug(filtered_results_item_3_0)    \n    Summary_function_Fail__total_failed_artifacts = len(filtered_results_item_1_0) + len(filtered_results_item_2_0) + len(filtered_results_item_3_0)\n",
+                        "warn": false,
+                        "z": 287
+                    },
+                    {
+                        "action": "file reputation",
+                        "action_type": "investigate",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "hash": "AllContainerArtifacts:custom_function:results_hash"
+                        },
+                        "angle": 0,
+                        "app": "Alienvault OTXv2",
+                        "appid": "c939c73f-cb0a-478e-9e47-148d982495db",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "file reputation",
+                                "actions": [
+                                    "url reputation",
+                                    "file reputation",
+                                    "ip reputation",
+                                    "domain reputation",
+                                    "on poll",
+                                    "test connectivity"
+                                ],
+                                "active": true,
+                                "app_name": "Alienvault OTXv2",
+                                "app_version": "1.0.3",
+                                "appid": "c939c73f-cb0a-478e-9e47-148d982495db",
+                                "asset_name": "otx",
+                                "config_type": "asset",
+                                "count": 0,
+                                "fields": {
+                                    "hash": "AllContainerArtifacts:custom_function:results_hash"
+                                },
+                                "has_app": true,
+                                "id": 7,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "otx",
+                                "output": [
+                                    {
+                                        "column_name": "hash",
+                                        "column_order": 0,
+                                        "contains": [
+                                            "hash",
+                                            "sha256",
+                                            "sha1",
+                                            "md5"
+                                        ],
+                                        "data_path": "action_result.parameter.hash",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "found",
+                                        "column_order": 1,
+                                        "data_path": "action_result.summary.found",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "Name",
+                                        "column_order": 2,
+                                        "data_path": "action_result.summary.pulse_0_name",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "status",
+                                        "column_order": 3,
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    }
+                                ],
+                                "parameters": {
+                                    "hash": {
+                                        "contains": [
+                                            "hash",
+                                            "sha256",
+                                            "sha1",
+                                            "md5"
+                                        ],
+                                        "data_type": "string",
+                                        "default": "",
+                                        "description": "File hash to query",
+                                        "key": "hash",
+                                        "order": 0,
+                                        "primary": true,
+                                        "required": true,
+                                        "value_list": []
+                                    }
+                                },
+                                "product_name": "Alienvault OTXv2",
+                                "product_vendor": "Alienvault",
+                                "targets": "7",
+                                "type": "reputation"
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "file reputation"
+                            },
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Investigate"
+                            },
+                            "g.approver image": {
+                                "opacity": 1
+                            },
+                            "g.code image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_code_light_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_investigate.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            },
+                            "g.timer image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "# read-only block view not available",
+                        "callback_code": "",
+                        "callback_start": 107,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "custom_callback": "",
+                        "custom_code": "def file_reputation_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('file_reputation_6() called')\n\n    AllContainerArtifacts__results_hash = json.loads(phantom.get_run_data(key='AllContainerArtifacts:results_hash'))\n    # collect data for 'file_reputation_6' call\n    phantom.debug(AllContainerArtifacts__results_hash)\n\n    if len(AllContainerArtifacts__results_hash) > 0:\n        parameters = AllContainerArtifacts__results_hash\n\n        phantom.act(\"file reputation\", parameters=parameters, callback=join_Initial_filtering, name=\"file_reputation_6\")\n\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": true,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "ef49bc36-4703-4a77-ab36-77fb3fc5a7f5",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 115,
+                        "line_start": 101,
+                        "message": "Configuring now",
+                        "name": "file reputation",
+                        "notes": "",
+                        "number": 6,
+                        "order": 3,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 260,
+                            "y": 60
+                        },
+                        "previous_function": "",
+                        "previous_name": "file_reputation_6",
+                        "required_params": {
+                            "hash": true
+                        },
+                        "reviewer": "",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_assets",
+                        "status": "",
+                        "title": "Investigate",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 288
+                    },
+                    {
+                        "action": "lookup domain",
+                        "action_type": "investigate",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "domain": "AllContainerArtifacts:custom_function:results_domain",
+                            "type": ""
+                        },
+                        "angle": 0,
+                        "app": "DNS",
+                        "appid": "876ab991-313e-48e7-bccd-e8c9650c239c",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "lookup domain",
+                                "actions": [
+                                    "lookup ip",
+                                    "lookup domain",
+                                    "test connectivity"
+                                ],
+                                "active": true,
+                                "app_name": "DNS",
+                                "app_version": "1.3.32",
+                                "appid": "876ab991-313e-48e7-bccd-e8c9650c239c",
+                                "asset_name": "google_dns",
+                                "config_type": "asset",
+                                "count": 0,
+                                "fields": {
+                                    "domain": "AllContainerArtifacts:custom_function:results_domain",
+                                    "type": ""
+                                },
+                                "has_app": true,
+                                "id": 1,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "google_dns",
+                                "output": [
+                                    {
+                                        "data_path": "action_result.status",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "success"
+                                        ]
+                                    },
+                                    {
+                                        "contains": [
+                                            "host name",
+                                            "domain"
+                                        ],
+                                        "data_path": "action_result.parameter.domain",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "ffobaaar.com",
+                                            "phantomcyber.com",
+                                            "amazon.com"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.parameter.type",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "contains": [
+                                            "ip"
+                                        ],
+                                        "data_path": "action_result.data.*.record_info_objects.*.record_info",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "54.239.25.192"
+                                        ]
+                                    },
+                                    {
+                                        "contains": [
+                                            "ip"
+                                        ],
+                                        "data_path": "action_result.data.*.record_infos",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "54.239.26.128"
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.summary.cannonical_name",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "phantomcyber.com.",
+                                            "amazon.com."
+                                        ]
+                                    },
+                                    {
+                                        "column_order": 3,
+                                        "data_path": "action_result.summary.canonical_name",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "Hostname",
+                                        "column_order": 2,
+                                        "contains": [
+                                            "host name",
+                                            "domain"
+                                        ],
+                                        "data_path": "action_result.summary.hostname",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "ffobaaar.com"
+                                        ]
+                                    },
+                                    {
+                                        "column_name": "IP Address",
+                                        "column_order": 1,
+                                        "contains": [
+                                            "ip"
+                                        ],
+                                        "data_path": "action_result.summary.record_info",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "54.239.25.192"
+                                        ]
+                                    },
+                                    {
+                                        "column_order": 0,
+                                        "data_path": "action_result.summary.total_record_infos",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            1,
+                                            6
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "action_result.message",
+                                        "data_type": "string",
+                                        "example_values": [
+                                            "None of DNS query names exist: ['ffobaaar.com.', 'ffobaaar.com.localdomain.']",
+                                            "Record info: 54.239.25.192, Total record infos: 6, Cannonical name: amazon.com."
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "data_path": "summary.total_objects_successful",
+                                        "data_type": "numeric",
+                                        "example_values": [
+                                            1
+                                        ]
+                                    }
+                                ],
+                                "parameters": {
+                                    "domain": {
+                                        "contains": [
+                                            "host name",
+                                            "domain"
+                                        ],
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "Record to resolve",
+                                        "key": "domain",
+                                        "primary": true,
+                                        "required": true
+                                    },
+                                    "type": {
+                                        "data_type": "string",
+                                        "default": null,
+                                        "description": "DNS Record Type",
+                                        "key": "type",
+                                        "required": false,
+                                        "value_list": [
+                                            "A",
+                                            "AAAA",
+                                            "CNAME",
+                                            "HINFO",
+                                            "ISDN",
+                                            "MX",
+                                            "NS",
+                                            "SOA",
+                                            "TXT"
+                                        ]
+                                    }
+                                },
+                                "product_name": "DNS",
+                                "product_vendor": "Generic",
+                                "targets": "1",
+                                "type": "information"
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "lookup domain"
+                            },
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Investigate"
+                            },
+                            "g.approver image": {
+                                "opacity": 1
+                            },
+                            "g.code image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_code_light_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_investigate.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            },
+                            "g.timer image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "# read-only block view not available",
+                        "callback_code": "",
+                        "callback_start": 128,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "custom_callback": "",
+                        "custom_code": "def lookup_domain_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('lookup_domain_1() called')\n\n    AllContainerArtifacts__results_domain = json.loads(phantom.get_run_data(key='AllContainerArtifacts:results_domain'))\n    # collect data for 'lookup_domain_1' call\n\n    if len(AllContainerArtifacts__results_domain) > 0:\n        parameters = AllContainerArtifacts__results_domain\n\n        phantom.act(\"lookup domain\", parameters=parameters, callback=join_Initial_filtering, name=\"lookup_domain_1\")\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": true,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "b9a5e47f-f645-4b3d-9e2e-82bef48d66e2",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 127,
+                        "line_start": 115,
+                        "message": "Configuring now",
+                        "name": "lookup domain",
+                        "notes": "",
+                        "number": 1,
+                        "order": 4,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 260,
+                            "y": 200
+                        },
+                        "previous_function": "",
+                        "previous_name": "lookup_domain_1",
+                        "required_params": {
+                            "domain": true
+                        },
+                        "reviewer": "",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_assets",
+                        "status": "",
+                        "title": "Investigate",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 291
+                    },
+                    {
+                        "action": "url reputation",
+                        "action_type": "investigate",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {
+                            "url": ""
+                        },
+                        "angle": 0,
+                        "app": "Alienvault OTXv2",
+                        "appid": "c939c73f-cb0a-478e-9e47-148d982495db",
+                        "approver": "",
+                        "assets": [
+                            {
+                                "action": "url reputation",
+                                "actions": [
+                                    "url reputation",
+                                    "file reputation",
+                                    "ip reputation",
+                                    "domain reputation",
+                                    "on poll",
+                                    "test connectivity"
+                                ],
+                                "active": true,
+                                "app_name": "Alienvault OTXv2",
+                                "app_version": "1.0.3",
+                                "appid": "c939c73f-cb0a-478e-9e47-148d982495db",
+                                "asset_name": "otx",
+                                "config_type": "asset",
+                                "count": 0,
+                                "fields": {
+                                    "url": ""
+                                },
+                                "has_app": true,
+                                "id": 7,
+                                "loaded": false,
+                                "missing": false,
+                                "name": "otx",
+                                "output": [
+                                    {
+                                        "column_name": "url",
+                                        "column_order": 0,
+                                        "contains": [
+                                            "url"
+                                        ],
+                                        "data_path": "action_result.parameter.url",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "found",
+                                        "column_order": 1,
+                                        "data_path": "action_result.summary.found",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "Name",
+                                        "column_order": 2,
+                                        "data_path": "action_result.summary.pulse_0_name",
+                                        "data_type": "string"
+                                    },
+                                    {
+                                        "column_name": "status",
+                                        "column_order": 3,
+                                        "data_path": "action_result.status",
+                                        "data_type": "string"
+                                    }
+                                ],
+                                "parameters": {
+                                    "url": {
+                                        "contains": [
+                                            "url"
+                                        ],
+                                        "data_type": "string",
+                                        "default": "",
+                                        "description": "URL to query",
+                                        "key": "url",
+                                        "order": 0,
+                                        "primary": true,
+                                        "required": true,
+                                        "value_list": []
+                                    }
+                                },
+                                "product_name": "Alienvault OTXv2",
+                                "product_vendor": "Alienvault",
+                                "targets": "7",
+                                "type": "reputation"
+                            }
+                        ],
+                        "attrs": {
+                            ".action": {
+                                "text": "url reputation"
+                            },
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "Investigate"
+                            },
+                            "g.approver image": {
+                                "opacity": 1
+                            },
+                            "g.code image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_code_light_on.svg"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_investigate.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            },
+                            "g.timer image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "# read-only block view not available",
+                        "callback_code": "",
+                        "callback_start": 150,
+                        "callsback": true,
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "custom_callback": "",
+                        "custom_code": "def url_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('url_reputation_1() called')\n\n    # collect data for 'url_reputation_1' call\n    AllContainerArtifacts__results_url = json.loads(phantom.get_run_data(key='AllContainerArtifacts:results_url'))\n    # collect data for 'lookup_domain_1' call\n\n    if len(AllContainerArtifacts__results_url) > 0:\n        parameters = AllContainerArtifacts__results_url\n\n        phantom.act(\"url reputation\", parameters=parameters, callback=join_Initial_filtering, name=\"url_reputation_1\")\n    return",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "has_custom": true,
+                        "has_custom_block": true,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "ac34d4c5-f16c-427c-b652-e2ddbe8bf3ef",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 140,
+                        "line_start": 127,
+                        "message": "Configuring now",
+                        "name": "url reputation",
+                        "notes": "",
+                        "number": 1,
+                        "order": 5,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 260,
+                            "y": 360
+                        },
+                        "previous_function": "",
+                        "previous_name": "url_reputation_1",
+                        "required_params": {
+                            "url": true
+                        },
+                        "reviewer": "",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "app_action_assets",
+                        "status": "",
+                        "title": "Investigate",
+                        "type": "coa.Action",
+                        "warn": false,
+                        "z": 292
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "a8726491-3702-481d-8cca-b4091abaf2cc",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "b2928949-eda1-4ed7-aaa5-5da006b88f6f",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "33a2809d-3dc6-4a86-86de-5bef024fe6e9",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 293
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "3a7ed2a6-fe7c-474f-b680-9e706fdc9e06",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "404d3c27-bffc-4c8e-a0c8-4304159cb42d",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "33a2809d-3dc6-4a86-86de-5bef024fe6e9",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 294
+                    },
+                    {
+                        "0": "E",
+                        "1": "N",
+                        "2": "D",
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#FFFFFF",
+                                "stroke": "#818D99"
+                            },
+                            ".color-band": {
+                                "fill": "#171D21"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".title": {
+                                "text": "END"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.icon image": {
+                                "xlink:href": "/inc/coa/img/block_icon_end.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def on_finish(container, summary):\n    phantom.debug('on_finish() called')\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all detals of actions \n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n    return",
+                        "callback_code": "# read-only block view not available",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "file reputation, lookup domain, url reputation, file reputation, lookup domain, url reputation",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "33a2809d-3dc6-4a86-86de-5bef024fe6e9",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "# read-only block view not available",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 279,
+                        "line_start": 266,
+                        "name": "",
+                        "notes": "",
+                        "number": 0,
+                        "order": 11,
+                        "outPorts": [],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1500,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "",
+                        "show_number": true,
+                        "size": {
+                            "height": 54,
+                            "width": 80
+                        },
+                        "status": "",
+                        "title": "END",
+                        "type": "coa.StartEnd",
+                        "warn": false,
+                        "z": 295
+                    }
+                ]
+            },
+            "notes": ""
+        },
+        "schema": 3,
+        "version": "4.2.7532"
+    },
+    "create_time": "2019-05-23T17:08:53.169313+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": []
+}
