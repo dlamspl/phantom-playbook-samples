@@ -16,7 +16,7 @@ Playbooks
 -----------
 
 
-### 01. Splunk_Demo_On_Notable
+### 01. PBS-Splunk_Demo_On_Notable
 
 **Required Assets: Splunk**
 
