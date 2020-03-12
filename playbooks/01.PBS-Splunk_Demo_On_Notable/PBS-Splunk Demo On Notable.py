@@ -36,7 +36,7 @@ def Update_Notable(action=None, success=None, container=None, results=None, hand
             parameters.append({
                 'owner': "admin",
                 'status': "in progress",
-                'event_ids': container_item[0],
+                'event_id': container_item[0],
                 'urgency': "high",
                 'comment': "Phantom investigating",
                 # context (artifact id) is added to associate results with the artifact
